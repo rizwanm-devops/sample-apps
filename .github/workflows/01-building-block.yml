@@ -1,7 +1,6 @@
 name: 01-building block
 
 on:
-  pull_request:
   workflow_dispatch:
 
 jobs:
