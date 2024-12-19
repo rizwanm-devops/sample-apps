@@ -1,4 +1,4 @@
-name: 05-1-filters activity
+name: 05-2-filters activity
 
 on:
   pull_request:
