@@ -7,6 +7,14 @@ on:
         description: Whether to execute cache step
         type: boolean
         default: true
+      node-version:
+        description: Node Version
+        type: choice
+        options:
+          - 18.x
+          - 20.x
+          - 21.x
+        default: 20.x
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,7 +27,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: ${{inputs.node-version}}
       - name: install dependencies
         run: npm ci
       - name: Run Unit test
