@@ -25,7 +25,7 @@ jobs:
       - name: Run Unit test
         run: npm run test
       - name: Building
-        run: npm wun build
+        run: npm run build
       - name: Deploy to nonprod
         run: echo "Deploying to nonprod"
       
