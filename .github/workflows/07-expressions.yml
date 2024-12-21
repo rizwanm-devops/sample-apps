@@ -1,4 +1,8 @@
 name: 07-expressions
+run-name: 07-expressions| Debug - ${{ inputs.debug && 'ON' || 'OFF' }}
+
+env: 
+  MY_VAR_WITH_DEFAULT: ${{ vars.MY_VAR || 'default_value'}}
 
 on: 
   push:
