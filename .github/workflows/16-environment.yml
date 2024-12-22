@@ -3,10 +3,6 @@ run-name: 16-environment | env - ${{ inputs.target-env }}
 
 on:
   workflow_dispatch:
-    inputs:
-      target-env:
-        type: environment
-        default: staging
 
 jobs:
   deploy-staging:
