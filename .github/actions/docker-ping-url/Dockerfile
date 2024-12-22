@@ -1,8 +1,8 @@
 # Start with the python:alpine3.19 image
 FROM python:alpine3.19
 
-# Install git (needed for pip to clone the cloud-init repository from GitHub)
-RUN apk add --no-cache git
+# Install git and other necessary packages (including command-not-found if needed)
+RUN apk add --no-cache git command-not-found
 
 # Set the working directory
 WORKDIR /app
