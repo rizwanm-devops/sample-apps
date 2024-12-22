@@ -13,4 +13,4 @@ jobs:
     needs: deploy
     uses: rizwanm-devops/sample-app-1/.github/workflows/e2e.yaml@main
     secrets:
-      access-token: ${{ secrets.TEST_TOKEN }}  # Secret for use within the reusable workflow
+      access-token: ${{ secrets.GITHUB_TOKEN}}  # Secret for use within the reusable workflow
