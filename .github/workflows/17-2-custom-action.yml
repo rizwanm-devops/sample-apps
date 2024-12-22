@@ -28,3 +28,5 @@ jobs:
           base-branch: ${{ inputs.base-branch }}
           head-branch: ${{ inputs.head-branch }}
           working-directory: ${{ inputs.working-dir }}
+        env:
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
