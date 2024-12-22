@@ -13,8 +13,8 @@ COPY requirements.txt .
 # Verify python version (optional)
 RUN python -V
 
-# Install the dependencies listed in requirements.txt
+# Install the dependencies listed in requirements.txt (excluding command-not-found)
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Command to run your application (if any)
-CMD ["python", "your_script.py"]
+CMD ["python", "main.py"]
