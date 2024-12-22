@@ -1,0 +1,14 @@
+name: 18-3-reuseable
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/18-1-reuseable.yml
+    with:
+      target-directory: dummy-dir
+  e2e-tests:
+    uses: rizwanm-devops/sample-app-1/.github/workflows/e2e.yaml@main
+    secrets:
+      access-token: ${{ secrets.TEST_TOKEN }}
