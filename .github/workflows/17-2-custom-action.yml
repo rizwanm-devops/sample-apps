@@ -33,7 +33,7 @@ jobs:
           base-branch: ${{ inputs.base-branch }}
           head-branch: ${{ inputs.target-branch }}
           working-directory: ${{ inputs.working-dir }}
-          gh-token: ${{ secrets.GITHUB_TOKEN }}
+          gh-token: ${{ secrets.TEST_TOKEN }}
           debug: ${{ inputs.debug }}
       - name: Print custom action output
         run: |
