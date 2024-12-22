@@ -7,14 +7,19 @@ on:
       base-branch:
         type: string
         default: main
-      head-branch:
+      target-branch:
         type: string
         default: update-dependencies
       working-dir:
         type: string
         default: 17-custom-actions/react-app
+      debug:
+        type: boolean
+        default: false
 
-
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   dependency-update:
@@ -22,11 +27,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check for dependency updates
-        id: setup-deps
+        id: update-deps
         uses: ./.github/actions/js-dependency-update
         with:
           base-branch: ${{ inputs.base-branch }}
-          head-branch: ${{ inputs.head-branch }}
+          head-branch: ${{ inputs.target-branch }}
           working-directory: ${{ inputs.working-dir }}
-        env:
-          gh-token: ${{ secrets.GH_TOKEN }}
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
+          debug: ${{ inputs.debug }}
+      - name: Print custom action output
+        run: |
+          echo "Updates available: ${{ steps.update-deps.outputs.updates-available }}"
