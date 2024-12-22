@@ -29,4 +29,4 @@ jobs:
           head-branch: ${{ inputs.head-branch }}
           working-directory: ${{ inputs.working-dir }}
         env:
-          gh-token: ${{ secrets.GITHUB_TOKEN }}
+          gh-token: ${{ secrets.GH_TOKEN }}
