@@ -10,5 +10,6 @@ jobs:
       target-directory: dummy-dir
   e2e-tests:
     uses: rizwanm-devops/sample-app-1/.github/workflows/e2e.yaml@main
+    needs: deploy
     secrets:
       access-token: ${{ secrets.TEST_TOKEN }}
