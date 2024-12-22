@@ -1,21 +1,18 @@
 FROM python:alpine3.19
 
-# Install necessary build dependencies for Python packages
-RUN apk add --no-cache build-base libffi-dev
+# Install Alpine dependencies
+RUN apk add --no-cache build-base libffi-dev gcc musl-dev python3-dev
 
 WORKDIR /app
 
-# Copy the requirements file into the container
+# Copy requirements file
 COPY requirements.txt .
 
-# Check Python version
-RUN python -V
-
-# Install Python dependencies
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code into the container
+# Copy the rest of the app code
 COPY . .
 
-# Set the default command to run the application
+# Start the app
 CMD ["python", "/app/main.py"]
