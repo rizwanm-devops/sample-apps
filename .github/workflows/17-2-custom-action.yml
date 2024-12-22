@@ -1,0 +1,14 @@
+name: 17-2-custom-action-JS
+run-name: 17-2-custom-action -JS 
+
+on:
+  workflow_dispatch:
+
+jobs:
+  dependency-update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for dependency updates
+        id: setup-deps
+        uses: ./.github/actions/js-dependency-update
