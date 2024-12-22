@@ -1,19 +1,12 @@
-FROM python:3.13-slim
+FROM python:alpine3.19
 
-# Install necessary dependencies for Python packages
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libffi-dev \
-    gcc \
-    python3-dev
+# Install necessary system dependencies for Python packages
+RUN apk add --no-cache build-base libffi-dev gcc python3-dev musl-dev
 
 WORKDIR /app
 
 # Copy the requirements file into the container
 COPY requirements.txt .
-
-# Check Python version
-RUN python -V
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
