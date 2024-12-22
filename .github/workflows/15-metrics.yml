@@ -45,4 +45,3 @@ jobs:
         include: 
           - color: red
             shape: triangle
-
