@@ -10,7 +10,7 @@ on:
 
 jobs:
   echo:
-    runs-on:
+    runs-on: ubuntu-latest
     environment:
     env:
       my-env-value: ${{ vars.MY_ENV_VALUE || 'default value'}}
