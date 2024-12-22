@@ -1,13 +1,7 @@
 name: 05-1-filters activity
 
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-    branches:
-      - main
-
+  workflow_dispatch:
 jobs:
   echo:
     runs-on: ubuntu-latest
