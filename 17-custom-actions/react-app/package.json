@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "webpack serve --config webpack.config.js --open",
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js || npm install -D webpack-cli && webpack --config webpack.config.js",
     "test": "react-scripts test --watchAll=false --forceExit",
     "eject": "react-scripts eject",
     "start:server": "node server.js"
