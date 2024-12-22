@@ -8,24 +8,9 @@ jobs:
     uses: ./.github/workflows/18-1-reuseable.yml
     with:
       target-directory: dummy-dir
+
   e2e-tests:
     needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        repository: rizwanm-devops/sample-app-1
-        ref: main
-        ssh-strict: true
-        ssh-user: git
-        persist-credentials: true
-        clean: true
-        sparse-checkout-cone-mode: true
-        fetch-depth: 1
-        fetch-tags: false
-        show-progress: true
-        lfs: false
-        submodules: false
-        set-safe-directory: true
-        token: ${{ secrets.TEST_TOKEN }}
+    uses: rizwanm-devops/sample-app-1/.github/workflows/e2e.yaml@main
+    secrets:
+      access-token: ${{ secrets.TEST_TOKEN }}  # Secret for use within the reusable workflow
